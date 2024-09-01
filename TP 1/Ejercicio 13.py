@@ -6,7 +6,7 @@ while dividendo<=num:
         divisores+=1
     dividendo+=1
     
-if divisores<=2:
+if divisores<=2 and num>1:
     print("Es un numero primo")
 else:
     print("No es un numero primo")
