@@ -4,8 +4,7 @@ misma contiene o no números"""
 def contiene_numeros(string):
     numeros=list("0123456789")
     for letra in string:
-        for numero in numeros:
-            if letra==numero:
+        if letra in numeros:
                 return True
     return False
 
