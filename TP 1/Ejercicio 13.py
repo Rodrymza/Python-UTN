@@ -1,7 +1,7 @@
 num=int(input("Ingresa un numero: "))
 divisores=0
 dividendo=1
-while dividendo<=num:
+while dividendo<=num and divisores<3:
     if num%dividendo==0:
         divisores+=1
     dividendo+=1
