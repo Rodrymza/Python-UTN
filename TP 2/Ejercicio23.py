@@ -2,7 +2,7 @@
 recursión mostrar la cadena de forma inversa."""
 
 def mostrar_inverso(cadena):
-    if len(cadena)<=1:
+    if len(cadena)==1:
         return cadena
     else:
         return cadena[-1] + mostrar_inverso(cadena[0:-1])

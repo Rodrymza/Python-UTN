@@ -5,16 +5,16 @@ class OperacionMatematica:
         self.operacion= operacion
         
     def sumarNumeros(self):
-        print("La suma da", self.num1+self.num2)
+        print(f"Suma: {self.num1} + {self.num2} = {self.num1+self.num2}")
     
     def restarNumeros(self):
-        print("La resta da", self.num1-self.num2)
+        print(f"Resta: {self.num1} - {self.num2} = {self.num1-self.num2}")
     
     def multiplicarNumeros(self):
-        print("La multiplicacion da", (self.num1*self.num2))
+        print(f"Multiplicacion: {self.num1} x {self.num2} = {self.num1*self.num2}")
     
     def dividirNumeros(self):
-        print("La division da", self.num1/self.num2)
+        print(f"Division: {self.num1} / {self.num2} = {round(self.num1/self.num2,2)}")
     
     def aplicarOperacion(self):
         match self.operacion:

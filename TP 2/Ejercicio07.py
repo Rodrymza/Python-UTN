@@ -3,9 +3,9 @@
 cadena=input("Ingrese un texto cualquiera: ")
 vocales="aeiou"
 cantidad=0
-for i in cadena:
-    if i in vocales:
-        cantidad+=1
+
+for letra in vocales:
+    cantidad+=cadena.count(letra)
         
 print(f"El tamaño de la cadena es {len(cadena)}")
 print(f"La cantidad de vocales es {cantidad}")
