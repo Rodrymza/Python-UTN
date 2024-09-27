@@ -81,12 +81,19 @@ class FuncionesPrograma:
             else:
                 anio_texto+=f" {decenas[resto//10]} y {unidades[resto%10]}"
             string_fecha=f"{dia_texto} de {mes_texto} de {anio_texto}"
-         
-            print(string_fecha)  
+            i=0
+            fecha_string = ""
+            while i < (len(string_fecha)):
+                if string_fecha[i] == " ":
+                    if string_fecha[i+1] == " ":    #eliminacion de espacios dobles
+                        i += 1
+                fecha_string += string_fecha[i]
+                i += 1
+            print(fecha_string)  
         else:
             print("La fecha ingresada es incorrecta")
-fecha=(FuncionesPrograma("30/09/2015"))
+fecha=(FuncionesPrograma(input("Ingrese un fecha con formato 'dd/mm/yyy'")))
 fecha.fecha_literal()
 
-fecha = (FuncionesPrograma("30/2/1998"))
+fecha = (FuncionesPrograma("30/02/1998"))
 fecha.fecha_literal()
