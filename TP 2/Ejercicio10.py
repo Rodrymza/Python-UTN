@@ -1,7 +1,7 @@
 """Convertir cadena a mayusculas o minusculas. Dar al usuario la opcion de que desea hacer"""
 
 cadena=input("Ingrese una cadena de texto\n")
-opc=None
+opc=""
 
 while opc!="1" and opc!="2":
     print("Ingrese la opcion deseada")

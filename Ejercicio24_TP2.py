@@ -3,10 +3,9 @@ recursión."""
 
 def mostrar_caracter(cadena):
     if len(cadena)==1:
-        print(cadena)
+        return cadena
     else:
-        print(cadena[0])
-        mostrar_caracter(cadena[1:])   
+        return cadena[0] + "\n" + mostrar_caracter(cadena[1:])   
     
 cadena="Rodrigo"
-mostrar_caracter(cadena)
+print(mostrar_caracter(cadena))

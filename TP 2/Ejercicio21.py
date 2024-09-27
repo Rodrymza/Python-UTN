@@ -9,4 +9,5 @@ def sumar_recursivo(numero):
         return numero + sumar_recursivo(numero-1)
    
 print(sumar_recursivo(5)) 
-    
+
+print(sumar_recursivo(3))

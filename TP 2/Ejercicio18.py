@@ -87,3 +87,6 @@ class FuncionesPrograma:
             print("La fecha ingresada es incorrecta")
 fecha=(FuncionesPrograma("30/09/2015"))
 fecha.fecha_literal()
+
+fecha = (FuncionesPrograma("30/2/1998"))
+fecha.fecha_literal()

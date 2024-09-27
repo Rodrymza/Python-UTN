@@ -1,3 +1,5 @@
+"""Pedir dos palabras por teclado, indicar si son iguales."""
+
 word1=input("Ingrese una palabra \n")
 word2=input("Ingresa otra palabra \n")
 
