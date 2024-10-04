@@ -1,8 +1,8 @@
 #Sistema de gestion de inventario de Tienda
 
 def mostrar_inventario(inventario):
-    for clave in inventario.keys():
-        print(f"Codigo: {clave}, Descripcion : {inventario[clave][1]}, Precio ${inventario[clave][2]}")
+    for clave, (nombre, descripcion, precio)  in inventario.items():
+        print(f"Codigo: {clave}, Descripcion : {descripcion}, Precio ${precio}")
             
 def buscar_producto(inventario, codigo):
     encontrado = False
@@ -41,13 +41,13 @@ def productos_por_rango_de_precio(inventario, min_precio, max_precio):
     else:
         print("No se encontraron productos en el rango de precios")    
     
-inventario = {"A001" : ("Mouse Inhalambrico", "Marca Trust, con pilas", 12000),
+inventario = {"A001" : ("Mouse Inhalambrico", "Mouse Marca Trust, con pilas", 12000),
               "A002" : ("Teclado Genius BT", "Teclado marca genius, inalambrico, luces RGB", 2500),
               "A003" : ("Pendrive 128 GB", "Pendrive 128 GB de almacenamiento marca Datatraveler", 50000),
               "A004" : ("Monitor Samsung 20'", "Monitor Samsung 20 pulgadas, HDMI", 70000),
               "A005" : ("Impresora Brother DCP 1200", "Chorro de tinta, 3 cartuchos, WiFi", 90000)}
 mostrar_inventario(inventario)
-buscar_producto(inventario, "A003")
-modificar_precio(inventario, "A001", 15000)
-eliminar_producto(inventario,"A001")
-productos_por_rango_de_precio(inventario, 2000, 50000)
+#buscar_producto(inventario, "A003")
+#modificar_precio(inventario, "A001", 15000)
+#eliminar_producto(inventario,"A001")
+#productos_por_rango_de_precio(inventario, 2000, 50000)
