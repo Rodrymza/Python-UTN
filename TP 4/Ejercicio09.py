@@ -6,18 +6,8 @@ texto utilizando un diccionario.
 b) Imprime el diccionario resultante. """
 
 texto = "manzana naranja manzana pera pera pera naranja manzana"
-texto += " " 
-
-lista_frutas = []
-fruta = ""
-for letra in texto:
-    
-    if letra != " ":
-        fruta += letra
-    else:
-        lista_frutas.append(fruta)
-        fruta = ""
-        
+lista_frutas = texto.split(" ")
+print(lista_frutas)   
 frutas = {}
 for palabra in lista_frutas:
     if palabra in frutas:

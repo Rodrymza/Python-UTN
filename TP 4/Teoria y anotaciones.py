@@ -21,3 +21,6 @@ nuevatupla = tupla_ejemplo + tupla_2
 print(nuevatupla)
 
 print(8 in nuevatupla)
+
+texto = "manzana naranja manzana pera pera pera naranja manzana"
+print(texto.split(" "))

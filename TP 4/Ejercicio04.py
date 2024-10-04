@@ -5,15 +5,11 @@ c) Imprime el resultado de ambas verificaciones. """
 
 colores = ("rojo", "verde", "azul", "amarillo")
 
-morado_in_colores = "morado" in colores
-azul_in_colores = "azul" in colores
+def ver_existencia(color,tupla):
+    if color in tupla:
+        print(f"El color {color} esta en la tupla")
+    else:
+        print(f"El color {color} no esta en la tupla")
 
-if morado_in_colores:
-    print("El color morado esta en la tupla")
-else:
-    print("El color morado no esta en la tupla")
-    
-if azul_in_colores:
-    print("El color azul esta en la tupla")
-else:
-    print("El color azul no esta en la tupla")
+ver_existencia("morado",colores)
+ver_existencia("azul",colores)

@@ -8,5 +8,5 @@ persona = {"nombre" : "Rodrigo",
            "apellido" : "Ramirez",
            "edad" : 33}
 
-print(f"El nombre de la persona es: {persona['apellido']}, {persona["nombre"]}")
+print(f"El nombre de la persona es: {persona["apellido"]}, {persona["nombre"]}")
 print(f"La edad de la persona es: {persona["edad"]}")
