@@ -73,6 +73,7 @@ def pedir_boolean(mensaje, valores = ["s", "n"]):   #valores invertidos 0 1 para
             ingreso = input(mensaje).lower()
             if ingreso in valores:
                 return valores.index(ingreso)
+                print(valores.index(ingreso))
             else:
                 print("Respuesta incorrecta")
         
