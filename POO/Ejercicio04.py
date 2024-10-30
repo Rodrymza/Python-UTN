@@ -1,4 +1,4 @@
-#Clase: marca(cadena), modelo (cadena), lista de objetos componenteCPU [
+from prettytable import PrettyTable #libreria para generar tabla al mostrar datos
 
 class ComponenteCPU:
     def __init__(self):
@@ -8,8 +8,8 @@ class ComponenteCPU:
         self.precio = 0.0
         
     def agregar_cantidades(self):
-        self.cantidad = self.pedir_entero("Ingrese cantidad\n")
-        self.precio = self.pedir_decimal("Ingrese precio\n")
+        self.cantidad = self.pedir_entero("Ingrese cantidad\n").title()
+        self.precio = self.pedir_decimal("Ingrese precio\n").title()
         
     def pedir_entero(self, mensaje):
         while True:
@@ -40,9 +40,11 @@ class Computadora:
     def imprimir_computadora(self):
             print(f"-------Computadora-------\nMarca: {self.marca}\nModelo: {self.modelo}")
             print("Componentes:")
-            print("Componente\t Marca\t Cantidad\t Precio U\t Subtotal\t Total")
+            tabla = PrettyTable()
+            tabla.field_names = ["Componente", "Marca", "Precio", "Cantidad", "Subtotal"]
             for elemento in self.lista_componentes:
-                print(f"{elemento.componente}\t {elemento.marca}\t {elemento.cantidad} \t {elemento.precio}\t {elemento.cantidad*elemento.precio}")
+                tabla.add_row([elemento.componente, elemento.marca, elemento.cantidad, elemento.precio, elemento.cantidad*elemento.precio])
+            print(tabla)
             self.calcular_precio()
             
     def calcular_precio(self):
