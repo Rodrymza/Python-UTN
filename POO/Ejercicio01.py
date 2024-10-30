@@ -1,20 +1,13 @@
+import funciones
 class Celdas:
     def __init__(self):
         self.fila = 0
         self.columna = 0
         self.valor = ""
-        
-    def ingresar_numero(self, mensaje = "Ingrese un numero"):
-        while True:
-            numero = input(f"{mensaje} \n")
-            if numero.isnumeric():
-                return int(numero)
-            else:
-                print("Ingresaste un valor incorrecto")
     
     def pedir_valores(self):
-        self.fila = self.ingresar_numero("Ingrese la fila")
-        self.columna = self.ingresar_numero("Ingrese la columna")
+        self.fila = funciones.ingresarNumero("Ingrese la fila", 1)
+        self.columna = funciones.ingresarNumero("Ingrese la columna", 1)
         
     def agregar_matriz(self, matriz):
         if not matriz.celda_ocupada(self.fila, self.columna):

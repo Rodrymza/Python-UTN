@@ -1,5 +1,6 @@
 from vivienda import Vivienda
-from vivienda import pedir_boolean
+from funciones import pedir_boolean
+from prettytable import PrettyTable
 class Barrio:
     def __init__(self):
         self.nombre = input("Ingrese nombre del barrio\n").title()
@@ -28,3 +29,10 @@ class Barrio:
             self.listaViviendas.append(vivienda_actual)
             if pedir_boolean("Desea agregar otra vivienda?"):
                 break
+    
+    def getBarrioViviendas(self):
+        tabla = PrettyTable(["Casa", "Sup cubierta", "Terreno", "Habitaciones"])
+        for vivienda in self.listaViviendas:
+            tabla.add_row([f"{vivienda.manzana} {vivienda.nroCasa}", 
+                           vivienda.getMetrosCuadradosCubiertos(), vivienda.superficieTerreno, len(vivienda.listaHabitacion)])
+        print(tabla)
