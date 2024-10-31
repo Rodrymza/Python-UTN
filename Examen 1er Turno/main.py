@@ -117,7 +117,7 @@ def rellenar_maquina():
                 print(f"Cantidad actualizada {golosinas[ingreso][1]}: {golosinas[ingreso][2]}")
                 return
         except:
-            praint("Valor incorrecto")
+            print("Valor incorrecto")
 
 #pedir_golosina()
 rellenar_maquina()
