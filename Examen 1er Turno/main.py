@@ -43,7 +43,7 @@ def imprimir_golosinas():
         tabla.add_row([codigo, nombre, stock])
     print(tabla)
     
-def pedir_golosina():
+def elegir_golosina():
     imprimir_golosinas()
     while True:
         ingreso = input("Ingrese codigo de golosina\n")  
@@ -85,7 +85,7 @@ def pedir_golosina():
     empleado = solicitar_legajo()
     if empleado:
         while True:
-            codigo = pedir_golosina()
+            codigo = elegir_golosina()
             if golosinas[codigo][2] > 0:
                 golosinas[codigo][2] -= 1
                 print(f"Extrajiste 1 unidad de {golosinas[codigo][1]}")
@@ -93,6 +93,7 @@ def pedir_golosina():
             else:
                 print(f"Lo sentimos, la golosina {golosinas[codigo][1]} no tiene stock")
             if pedir_boolean("Desea agregar mas golosinas? (s/n)"):
+                golosinas_pedidas.clear()
                 break
         print(f"Pedido {empleado}:")
         imprimir_pedido()
@@ -119,5 +120,14 @@ def rellenar_maquina():
         except:
             print("Valor incorrecto")
 
-#pedir_golosina()
-rellenar_maquina()
+def main():
+    while True:
+        print("Seleccione opcion\n1 Pedir golosina\n2 Rellenar maquina\n3 Salir")
+        ingreso = input()
+        match ingreso:
+            case "1": pedir_golosina()
+            case "2": rellenar_maquina()
+            case "3": break
+            case _: print("Opcion incorrecta")
+            
+main()
