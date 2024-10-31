@@ -16,16 +16,6 @@ def pedirdecimal(mensaje):
         except:
             print("El valor ingresado no es correcto")
 
-def solicitar_cliente(diccionario):
-    while True:
-        cuil = input("Ingrese numero de cliente\n")
-        if diccionario.get(cuil):
-            return diccionario[cuil]
-        elif cuil[0:2] in ("20", "27", "30", "33"):
-            return "Consumidor Final"
-        else:
-            print("El cuil ingresado es incorrecto")
-
 def solicitar_codigo_producto(lista_productos):
     while True:
         codigo = input("Ingrese el codigo del producto\n")
