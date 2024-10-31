@@ -16,22 +16,16 @@ class Factura:
 
     def agregar_producto(self, producto):
         encontrado = False
-        if len(self.detalleFactura) == 0:
-            self.detalleFactura.append(producto)
+        for i in range(len(self.detalleFactura)):    
+            if self.detalleFactura[i] [0] == producto[0]:
+                self.detalleFactura[i] [2] += 1
+                self.detalleFactura[i] [4] = self.detalleFactura[i] [2] * self.detalleFactura[i] [3]
+                print(f"Producto {producto[1]} sumado")
+                encontrado = True
+                break
+        if not encontrado:
             print(f"Producto {producto[1]} agregado")
-
-        else:
-            for i in range(len(self.detalleFactura)):
-                
-                if self.detalleFactura[i] [0] == producto[0]:
-                    self.detalleFactura[i] [2] += 1
-                    self.detalleFactura[i] [4] = self.detalleFactura[i] [2] * self.detalleFactura[i] [3]
-                    print(f"Producto {producto[1]} sumado")
-                    encontrado = True
-                    break
-            if not encontrado:
-                print(f"Producto {producto[1]} agregado")
-                self.detalleFactura.append(producto)
+            self.detalleFactura.append(producto)
 
 
     def imprimir_factura(self):

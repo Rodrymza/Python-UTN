@@ -33,27 +33,20 @@ def main():
             if ingreso == "0000":
                 break
             else:
-                if producto_en_lista(ingreso):
-                    indice = elegir_producto(ingreso)
-                    nueva_factura.agregar_producto([productos[indice][0], productos[indice][1], 1 ,productos[indice][2], productos[indice][2]])
+                producto = producto_en_lista(ingreso)
+                if producto:
+                    nueva_factura.agregar_producto(producto)
         nueva_factura.imprimir_factura()
         if funciones.pedir_boolean("Nueva factura?"):
             break
 
-        
-def elegir_producto(busqueda):
-    busqueda = int(busqueda)
-    for i in range(len(productos)):
-        if busqueda == productos[i][0]:
-            return i
-    return -1
 
 def producto_en_lista(busqueda):
     try: 
         busqueda = int(busqueda)
         for codigo, nombre, precio in productos:
             if codigo == busqueda:
-                return True
+                return [codigo, nombre, 1, precio, precio]
     except:
         print("El valor ingresado es incorrecto")
         return False
