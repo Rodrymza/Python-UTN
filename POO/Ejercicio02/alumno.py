@@ -15,3 +15,9 @@ class Alumno:
             
     def agregar_nota(self, nota):
         self.lista_notas.append(nota)
+    
+    def mostrar_notas(self):
+        print(f"Alumno: {self.nombre_completo}")
+        for elemento in self.lista_notas:
+            print(f"{elemento.catedra}: {elemento.notaexamen}")
+        print(f"Promedio: {self.calcular_promedio()}")

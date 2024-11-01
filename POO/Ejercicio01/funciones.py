@@ -1,7 +1,7 @@
 def pedir_boolean(mensaje, valores = ["s", "n"]):   #valores invertidos 0 1 para funcionalidad de pregunta
     """mensaje en entrada de datos, valores: lista para valores de retorno"""
     while True:
-        ingreso = input(mensaje).lower()
+        ingreso = input(mensaje + "\n").lower()
         if ingreso in valores:
             return valores.index(ingreso)
         else:
