@@ -1,64 +1,45 @@
-from prettytable import PrettyTable
-import funciones
-
 class Factura:
-    def __init__(self) -> None:
-        self.fecha = input("Ingrese fecha de la factura (dd/mm/aaa)\n")
-        self.numeroFactura = funciones.pedirentero("Ingrese numero de la factura")
-        self.letra = ""
-        self.total = 0.0
-        self.montoiva = 0
-        self.clienteFactura = ""
+    def __init__(self, fecha: str, numero: int) -> None:
+        self.fecha = fecha
+        self.numero = numero
+        self.letra: str
+        self.montoIva: float
+        self.clienteFactura: str
         self.detalleFactura = []
+        self.totalFactura: float
 
-    def ingresar_cliente(self, cliente):
-        self.clienteFactura = cliente            
+    def agregar_producto(self, producto: list):
+        self.detalleFactura.append(producto)
+        print(f"Producto {producto[1]} agregado")
 
-    def agregar_producto(self, producto):
-        encontrado = False
-        for i in range(len(self.detalleFactura)):    
-            if self.detalleFactura[i] [0] == producto[0]:
-                self.detalleFactura[i] [2] += 1
-                self.detalleFactura[i] [4] = self.detalleFactura[i] [2] * self.detalleFactura[i] [3]
-                print(f"Producto {producto[1]} sumado")
-                encontrado = True
-                break
-        if not encontrado:
-            print(f"Producto {producto[1]} agregado")
-            self.detalleFactura.append(producto)
-        
-    def calcularTotal(self):
+    def set_clienteFactura(self, cliente):
+        self.clienteFactura = cliente
+
+    def calcular_total(self):
         total = 0
-        for elemento in self.detalleFactura:
-            total += elemento[4]
+        for _, _, cantidad, precio in self.detalleFactura:
+            total += precio * cantidad
         return total
     
-    def asignar_montoIva(self, cuil):
-        if cuil[0:2] in ["20", "27"]:
-            self.montoiva = 0
-        else:
-            self.montoiva = 21
-    
-    def asignar_letra(self, cuil):
-        if cuil[0:2] in ["20", "27"] or self.clienteFactura == "Consumidor Final":
+    def asignar_iva_letra(self, cuil: str):
+        if cuil[0:2] in ("20", "27"):
             self.letra = "B"
+            self.montoIva = 0
         else:
             self.letra = "A"
-    
+            self.montoIva = round(self.calcular_total() * 0.21, 2)
+
     def asignar_total(self):
-        self.total = self.calcularTotal()
-        if self.montoiva == 21:
-            self.total += float(self.calcularTotal() * self.montoiva / 100)
-            
-    def imprimir_factura(self, cuil):
-        tabla = PrettyTable()
-        print(f"Cliente {self.clienteFactura} Cuil: {cuil}")
-        print(f"Letra {self.letra}")
-        print(f"Iva: {self.montoiva}")
-        print("Lista productos")
-        tabla.field_names = ["Codigo", "Nombre", "Cantidad", "Precio", "Subtotal"]
-        for codigo, nombre, cantidad, precio, subtotal in self.detalleFactura:
-            tabla.add_row([codigo, nombre, cantidad, precio, subtotal])
-        print(tabla)
-        print(f"Total sin impuestos ${self.calcularTotal()}")
-        print(f"Total: ${self.total}")
+        self.totalFactura = self.calcular_total() + self.montoIva
+
+    def mostrar_factura(self):
+        print(f"{"Fecha":<35}{self.fecha}")
+        print(f"{"Numero":<35}{self.numero}")
+        print(f"{"Letra":<35}{self.letra}")
+        print(f"{"Cliente":<35}{self.clienteFactura}")
+        print(f"{"Codigo":<12}{'Detalle':<20}{'Cantidad':<10}{'Precio Unitario':<15}{"Subtotal":<15}")
+        for producto in self.detalleFactura:
+            print(f"{producto[0]:<12}{producto[1]:<20}{producto[2]:<10}{producto[3]:<15}{(producto[2]*producto[3]):<15}")
+        print(f"{"IVA":>50}{self.montoIva:>10}")
+        print(f"{"Total":>50}{self.totalFactura:>10}")
+
