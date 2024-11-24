@@ -32,9 +32,11 @@ class Carrera:
         
     def mostrar_atletas(self):
         atleta: Atleta
+        self.competidores.sort(key= lambda atleta: atleta.tiempoRealizado)
         print("Lista de competidores".center(30, "-"))
-        for atleta in self.competidores:
-            print(atleta)
+        for indice, atleta in enumerate(self.competidores, start = 1):
+            print(indice, atleta)
+        print("".center(30, "-"))
             
     def agregar_atleta(self, atleta_nuevo: Atleta):
         self.competidores.append(atleta_nuevo)
